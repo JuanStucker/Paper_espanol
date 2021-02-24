@@ -1,0 +1,9 @@
+Algorithm,Average Envy,Average Excess Value,Average Piece Value,Numer of Individuals
+Moving Knife,1.41,0.0197,0.339,3
+Moving Knife,2.99,0.0615,0.2565,4
+Moving Knife,4.39,0.1041,0.2065,5
+Moving Knife,5.57,0.1745,0.1736,6
+Divide and Conquer,0.29,0.0031,0.338,3
+Divide and Conquer,0.77,0.0077,0.2568,4
+Divide and Conquer,0.85,0.0065,0.2067,5
+Divide and Conquer,2.12,0.0065,0.1734,6

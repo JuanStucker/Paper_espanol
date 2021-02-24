@@ -1,0 +1,68 @@
+\documentclass[acmlarge]{acmart}
+
+\usepackage{booktabs} % For formal tables
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{wrapfig}
+\usepackage{hyperref}
+
+
+\usepackage[ruled]{algorithm2e} % For algorithms
+\renewcommand{\algorithmcfname}{ALGORITHM}
+\SetAlFnt{\small}
+\SetAlCapFnt{\small}
+\SetAlCapNameFnt{\small}
+\SetAlCapHSkip{0pt}
+\IncMargin{-\parindent}
+\settopmatter{printacmref=false}
+\setcopyright{none}
+
+\makeatletter
+\let\@authorsaddresses\@empty
+\makeatother
+
+
+% Document starts
+\begin{document}
+% Title portion
+\title{Fairness, Equality, and Equity: Algorithmic Approaches}
+\titlenote{Current state and future}
+
+\author{Juan Enrique Stücker Martínez}
+\orcid{1234-5678-9012-3456}
+\affiliation{%
+  \institution{RWTH Aachen University}
+  \city{Aachen}
+  \country{Germany}}
+\email{juan.stuecker@rwth-aachen.de}
+
+%
+
+\begin{abstract}
+  Some of the basic needs for a society to function well - as hard as it is to define wellness in a social context - are "fairness", "equality", and "equity" for all the people taking part \textsl{in} the society. Fighting injustice is always a pressing subject in human societies. In the contemporary world expressing concern is now more democratized with access to the internet and in the hands of a bigger section of the population, which makes possible to diversify the topics in public discussion. Despite of this shift, it still is a rather untouched subject to judge and impose standards on algorithms by these 3 basic concepts. This paper will try to define what it means for an algorithm to be fair and for it to enforce equality and or equity. \\
+  Today's world is no absent of algorithms whose functionality affects certain groups of people more than others. The technological world has failed in many mainstream services we use in our day-to-day life to reach these goals, but concern has led to some change and a growing motivation for action, both from Academia as well as from the population and the Market itself. As uncomfortable, and even inconvenient as it is, this evolution is necessary.\\
+  By describing the mathematical and abstract concepts that attempt to replicate or represent these key themes (Fairness, Equality, Equity), and the ceonceptual problems that result in the creation of these definitions, we can gain a different perspective on how to engage with these difficult problems. Problems that for a long time were mainly approached from the Social and Political Sciences.\\
+  More on, not only can Algorithms reach for a moral standard, in some cases they can even help to solve more general social problems in humanity.
+  That is what algorithms can be, a double-edged sword.
+
+\end{abstract}
+
+\keywords{Social Problematics, Bias in Algorithms, Fairness}
+
+
+\maketitle
+
+% The default list of authors is too long for headers.
+\renewcommand{\shortauthors}{}
+
+\graphicspath{{../figures/}}
+
+\input{content}
+
+% Bibliography
+\bibliographystyle{../bibliography/ACM-Reference-Format}
+\bibliography{../bibliography/bibliography}
+
+
+\end{document}
