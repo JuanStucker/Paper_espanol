@@ -1,0 +1,28 @@
+image: marvinmenzerath/latex
+
+.build-tex:
+  stage: build
+  variables: 
+    TEX_CMD: 'latexmk -pdf -jobname=$CI_PROJECT_NAME'
+  artifacts:
+    paths:
+      - ${TEX_JOB}/${CI_PROJECT_NAME}.pdf
+    expire_in: 6 mos
+  script:
+    - cd "${TEX_JOB}" && ${TEX_CMD} "${TEX_JOB}.tex"
+
+build-proposal-text:
+  variables: 
+    TEX_JOB: 'proposal'
+  extends: .build-tex
+
+build-paper-text:
+  variables: 
+    TEX_JOB: 'paper'
+  extends: .build-tex
+  
+build-paper-slides:
+  variables: 
+    TEX_JOB: 'slides'
+  extends: .build-tex
+    
