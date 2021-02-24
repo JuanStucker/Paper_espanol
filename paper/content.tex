@@ -1,40 +1,17 @@
-\section{Introduction}
-
-Although a sense of fairness came into question very often in history during the development of mathematical or algorithmic methods, especially on the ones that had the potential to affect people\cite{Phen20}, action has been insufficient. Technology has a lot of examples of unfairness enforcing examples. \\
-The moral character of our societies evolves, and constantly changes, algorithms often permeate the social ideals of the time they are developed in, through human developers, and or through the users themselves. Algorithms set a mirror to ourselves, and our society as they reflect amongst other things, our faults. Social standards change\cite{Sewe17}, often for the better, and in today's society, which more openly than before puts pressure to advance those standards, algorithms should also follow through.
+\section{Introducción}
+Aunque algun sentido de justicia fué cuestionado muy a menudo durante la historia del desarrollo de métodos y sistemas algoritmios; especialmente aquellos que tuvieron el potencial de afectar directamente personas\cite{Pehn20}, la acciones han sido insuficientes. El sector tecnológico tiene muchos ejemplos sistemas injustos.
+El carácter moral de nuestras sociedades evoluciona, los algoritmos a menudo son impregnados por los ideales sociales del tiempo en el que se desarrollan, a travez de los desarrolladores humanos, on incluso travez de los usuarios en contacto con el sistema. Los algoritmos con los que tenemos contacto diariamente establecen una clase de espejo para nosotros mismos y nuestra sociedad, ya que reglejan, entre otras cosas, nuestras fallas.
 \begin{quote}
-"The wide variety of sectors in which automated decision-making systems are employed
-can have serious repercussions on human rights, whether related to health treatments,
-job opportunities, predictive policing or otherwise, rendering the capability to obtain an
-effective remedy in each of these is even more essential". -Study on Human Rights Dimensions of Automated Data Processing Techniques, and possible regulatory implications\cite{CommNaN}
-\end{quote}
-The question of the motivation of the developers then arises. Do they develop an unfair algorithm willingly, and especially conscious of the consequences? The answer is in a lot of cases "no". \cite{OCDK19}
-\begin{quote}
-  "Never attribute to malice that which is adequately explained by stupidity" -Robert J. Hanlon
- \cite{Bloc81}.
-\end{quote}
-To not be too harsh with the term, stupidity here suggests \textsl{unaware consequences of the work of the creators of such algorithms}. An unfair algorithm is not always made by unfair people. Frequently used machine-learning generated algorithms depend on the Data available for them. Thus, a big challenge is how to avoid such an outcome. Not only can we and \textsl{must} we analyze algorithms critically, algorithms can also intervene in the solution of social challenges. \\
-Approaches to abstract fairness notions in the fields of economics, mathematics, and social choice make able to apply theoretically generated solutions to real-world problems. The very well known Cake-Cutting Problem for division problems is a great example. \\
-Ironically, algorithms can be the solution, to algorithmically generated problems, the idea of an algorithm observing and accounting for another algorithm may sound bizarre, but it's the best solution to often very complex functioning systems a human may not be able to rapidly assess. \\
-Algorithmic Fairness has been on the radar of many researchers in the past decade, and with the rise of machine-learning methods for both the industry and academia, awareness of the flaws of some algorithms  is increasing, but there is no unified approach to assess, and resolve the imperfections within the systems. Often, definitions of fairness collide with one another, and fairness-controlling methods sometimes drastically change and are even discarded. The absence of a unified approach results in the necessity to observe the whole system for flaws. \\
-Throughout this paper, definitions will be the base from which the different approaches, both mathematical as well as conceptual. It is very important to be very clear with the fairness goals for the systems to analyze to avoid conflicts. Fairness definitions can be contradictory with one another in certain circumstances\cite{CPF*17}.
-\section{Basic definitions}
-The interest of this paper is rather on the mathematical definitions of our three terms, but for a good foundation it will begin with the ones found in the Oxford Dictionary for the English language.
-\begin{itemize}
-  \item Fairness:
-  "The quality of treating people equally or in a way that is right or reasonable"\cite{Fairness}
-  \item Equality:
-  "The right of different groups of people to have a similar social position and receive the same treatment"\cite{Equality}
-  \item Equity:
-  "The situation in which everyone is treated fairly and equally"\cite{Equity}\\
-  There is often a different interpretation of equity as an extension of equality, where every actor receives a good, based/on proportion on context and characteristics of the agnet."Give everyone what they \textsl{need} to succeed". This functions as a counterpoint to the simpler view of equality where everything is divided into identical parts.
-  \item System:\cite{Compsysbias}
-  "A set of things working together as parts of a mechanism or an interconnecting network."
+  "La amplia variedad de sectores en los que se emplean sistemas automatizados de toma de decisiones puede tener graves repercusiones en los derechos humanos, ya sean relacionados con tratamientos de salud, oportunidades laborales, vigilancia policial predictiva o de otro tipo, significando que la capacidad de obtener un remedio efectivo a cada estos es aún más esencial -Estudio sobre las dimensiones de derechos humanos del procesamiento automatizado de datos"
+  Técnicas y posibles implicaciones reglamentarias
+\end{quote} \cite{CommNaN}
 
-  A computer system is a set of integrated devices that input, output, process, and store data and information.
-  In this paper, the use of the word system will often refer to the set of components, from mathematical models until applied software that builds the entity performing the activity that was ought to be automated.
-\end{itemize}
-%recite some actual examples on today's world, this is probably going to be the biggest section fo all
+Entonces surge la cuestión sobre la motivación de los desarroladores. ¿Desarrollan voluntariamente un algoritmo injusto y siendo conscientes de las consecuencias? En muchos casos, la respuesta es "no".\cite{OCDK19}
+\begin{quote}
+  "Nunca atribuyas a la malicia lo que se explica adecuadamente por la estupidez" -Robert J. Hanlon \cite{Bloc81}.
+\end{quote}
+Para no ser demasiado severos con el término, la \textsl{estupidez} aquí se refiere a consecuencias inconscientes del trabajo de los creadores de tales algoritmos. Un algoritmo injusto no siempre es creado por personas injustas.
+
 \section{Contemporary problems}
 
 \subsection{Algorithmic Bias}
