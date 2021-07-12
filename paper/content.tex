@@ -1,75 +1,94 @@
 \section{Introducción}
-Aunque algun sentido de justicia fué cuestionado muy a menudo durante la historia del desarrollo de métodos y sistemas algoritmios; especialmente aquellos que tuvieron el potencial de afectar directamente personas\cite{Pehn20}, la acciones han sido insuficientes. El sector tecnológico tiene muchos ejemplos sistemas injustos.
-El carácter moral de nuestras sociedades evoluciona, los algoritmos a menudo son impregnados por los ideales sociales del tiempo en el que se desarrollan, a travez de los desarrolladores humanos, on incluso travez de los usuarios en contacto con el sistema. Los algoritmos con los que tenemos contacto diariamente establecen una clase de espejo para nosotros mismos y nuestra sociedad, ya que reglejan, entre otras cosas, nuestras fallas.
+Aunque algun sentido de justicia fué cuestionado muy a menudo durante la historia del desarrollo de métodos y sistemas algoritmos; especialmente aquellos que tuvieron el potencial de afectar directamente personas\cite{Pehn20}, la acciones han sido insuficientes. El sector tecnológico tiene muchos ejemplos sistemas injustos.
+El carácter moral de nuestras sociedades evoluciona, y los algoritmos a menudo son impregnados por los ideales sociales del tiempo en el que se desarrollan a travez de los desarrolladores humanos, o incluso travez de los usuarios en contacto con el sistema en construcción. Los algoritmos con los que tenemos contacto diariamente establecen una clase de espejo para nosotros mismos y nuestra sociedad, ya que reglejan, entre otras cosas, nuestras fallas.
 \begin{quote}
-  "La amplia variedad de sectores en los que se emplean sistemas automatizados de toma de decisiones puede tener graves repercusiones en los derechos humanos, ya sean relacionados con tratamientos de salud, oportunidades laborales, vigilancia policial predictiva o de otro tipo, significando que la capacidad de obtener un remedio efectivo a cada estos es aún más esencial -Estudio sobre las dimensiones de derechos humanos del procesamiento automatizado de datos"
+  "La amplia variedad de sectores en los que se emplean sistemas automatizados de toma de decisiones puede tener graves repercusiones en los derechos humanos, ya sean relacionados con tratamientos de salud, oportunidades laborales, vigilancia policial predictiva o de otro tipo, lo que significa que la capacidad de obtener un remedio efectivo a cada estos es aún más esencial -Estudio sobre las dimensiones de derechos humanos del procesamiento automatizado de datos"
   Técnicas y posibles implicaciones reglamentarias
 \end{quote} \cite{CommNaN}
 
-Entonces surge la cuestión sobre la motivación de los desarroladores. ¿Desarrollan voluntariamente un algoritmo injusto y siendo conscientes de las consecuencias? En muchos casos, la respuesta es "no".\cite{OCDK19}
+Entonces surge la cuestión sobre la motivación de los desarroladores. ¿Desarrollan voluntariamente un algoritmo injusto siendo conscientes de las consecuencias? En muchos casos, la respuesta es "no".\cite{OCDK19}
 \begin{quote}
   "Nunca atribuyas a la malicia lo que se explica adecuadamente por la estupidez" -Robert J. Hanlon \cite{Bloc81}.
 \end{quote}
-Para no ser demasiado severos con el término, la \textsl{estupidez} aquí se refiere a consecuencias inconscientes del trabajo de los creadores de tales algoritmos. Un algoritmo injusto no siempre es creado por personas injustas.
+Para no ser demasiado severos con el término, la \textsl{estupidez} aquí se refiere a consecuencias inconscientes del trabajo de los creadores de tales algoritmos. Un algoritmo injusto no siempre es creado por personas injustas. Existen causas externas a los desarrolladores que crean funcionamientos injustos.
+De igual manera, estos sistemas de toma de decisiones automaticos proveen una, a veces utópica perspectiva neutral para ciertos contextos en los que un humano no puede suprimir su naturaleza subjetiva.
+El sector de "Justicia Algorítmica" (Algorithmic Fairness) ha estado en el radar de investigadores durante la última década, y con el auge de metodos estadísticos computacionales (Machine-learning) tanto en la academia como en la industria, el reconocimiento de grandes fallas en muchos sistemas esta aumentando. A pesar de estos avances, el campo es actualmente muy diversificado, no existe una linea de investigacion unificada, y por lo tanto es muy común que definiciones básicas de "equidad algorítmica", "justicia algorítmica" llegan a ser incluso contradictorias y conflictuantes unas con otras, estas definiciones que son necesarias para crear la base de sistemas viables.
 
-\section{Contemporary problems}
+A travéz de este artículo las definiciones van a ser de alta importancia, tanto las definiciones linguísticas, como las matemáticas. Es importante ser claro desde un comienzo sobre las metas a ser alcanzadas en los sistemas.
 
-\subsection{Algorithmic Bias}
+\section{Problemas contemporáneos}
+
+\subsection{Sesgo algorítmico(Algorithmic Bias)}
 \label{AlgorithmicBias}
 
-Being biased is usually understood as not having fair treatment, and or not being neutral in a specific situation. Friedman defines a \textsl{Computer System being biased} as \begin{quote}"Systems that systematically and unfairly discriminate against certain individuals or groups of individuals in favor of others"\cite{Compsysbias}.\end{quote} The reason for a transition to algorithmic decision-making is usually effectiveness, efficiency, and a promised form of objectivity. "They are tools for better
-applying available information to make real-world decisions with less noise or variance
-and without the influence of human subjectivities"\cite{OBS*19}. However, it is realistically impossible to have a completely fair algorithm \footnote{Given the amount of ways how an algorithm may be affected, and the small amount of control in different stages of development.} Despite this, fairness standards, and goals are absolutely necessary.\\
-Bias can occur in different parts of the development of an algorithm. The following enlisting uses the classification of Friedman et al.\cite{Compsysbias}
+Friedman define el sesgo que un sistema computacional tiene como \begin{quote}
+  "Sistemas que de discriminan de manera sistemática e injusta a ciertos individuos o grupos de individuos en favor de otros."\cite{Compsysbias}
+\end{quote}
+Retornando a la introducción, una de las motivaciones originales dentro del campo de las ciencias computacionales de transicionar a sistemas de tomas de decisiones automaticos (algortimos) es tambíen su efectividad y eficiencia y el ya descríto sentido de objetividad. "Estos \footnote{sistemas} son herramientas para la mejor aplicación de información disponible para tomar decisiones en el mundo real con menos ruido y varianza, y sin la influencia de characteristicas subjetivas humanas" \cite{OBS*19} Sin embargo, el sesgo algorítmico en casos reales ocurre en diferentes partes del desarrollo y es inevitable hasta cierto punto \footnote{Observece sección de clasificación de Sesgo alg. y sesgo de información}.
+La siguiente clasificaión es tomada de la descripción de Friedman et al. \cite{Compsysbias}
 
-\subsubsection{Preexsitig bias}: \label{PreexsitingBias}
-"Preexisting bias has its roots in social institutions, practices, and attitudes"\cite{Compsysbias}
-Individuals that have a significant design input to the system may influence the model with personal bias (e.g., listing specifications that embody gender discrimination).
-\subsubsection{Technical bias}: \label{TechnicalBias}
-Technical constraints, or shortcomings. Does the technology used in the system have limitations that lead to possible unfair outcomes? (e.g not being able to correctly represent a population due to a lack of ways to make a survey; not having the resources to assess the adaptations needed for a sector of a population with disabilities, etc.)
-\subsubsection{Emergent bias}: \label{EmergentBias}
-Arises upon contact with users of the system, and not before. Having a moldable system, or a system that changes based on user input (e.g every system using feedback from the user to dynamically shape an internal model, such as recommendation systems, etc.)
 
-Every part of the process is then to some extent \textsl{sensitive} to be biased.
-The paper will largely focus on the machine-learning context, given that it is the technique that has the most literature on the subject in the last years.\\
-In contrast algorithms the are not created without statistical or machine-learning models rely less on inputted data and more on the logic behind the systems. The concept of fairness prevails, but the methods listed below may not be as easily applied.\\
-machine-learning algorithms often require a very large Data Set to produce passing solutions, this is the reason why there is a strong relationship between \textsl{Algorithmic Bias}\nameref{AlgorithmicBias} and \textsl{Data Bias}\label{DataBias}, which can be denoted as :
+\subsubsection{Sesgo preexistente}: \label{PreexsitingBias}
+Este tiene sus raíces en insituciones sociales, prácticas humanas, y/o actitudes\cite{Compsysbias}.
+Aquellos individuos que tienen una influencia significante en el sistema, pueden cambiar su funcionamiento concorde a sesgos personales (p.e., decidir sobre especificaciones del sistema que reproducen discriminación de género directa o indirectamente)
+\subsubsection{Sesgo tecnológico}: \label{TechnicalBias}
+Este referencia restricciones o limitaciones técnicas. (p.e, la incapacidad de representar correctamente una población en la información recabada debido a dificil acceso por falta de infraestructura, no tener una interfaz para personas ciegas)
+\subsubsection{Sesgo emergénte}: \label{EmergentBias}
+Este aparece a la par con el contacto de los usuarios con el sistema. Si se observa un sistema que se moldea en base al retroalimentación del usuario (sistemas de recomendación, sistemas de resenas(rating) de establecimientos), entonces el usuario puede transmitir sesgos personales al sistema, ya sea conciente o incocientemente.
+
+Este artículo se enfocará especialmente en modelos estadísticos de análisis (Machine-learning).
+Estos modelos dependen a una gran escala en las características y la calidad  de la información que es introducida al modelo, por lo general las cantidades de información requeridas para crear soluciones confiables son muy altas. Esta es la razón por la que hay una relación fuerte entre \textsl{Sesgo Algorítmico} y \textsl{Sesgo de información}, esta última puede ser definida de las siguientes maneras:
 \begin{enumerate}
-  \item Data that does not include variables that properly capture the phenomenon we want to predict
-  \item Data includes content produced by humans which may contain bias against groups of people
-  \item "A systemic distortion in the data that compromises its representativeness” \cite{OCDK19}
+  \item Información que no incluye variables que de manera apropiada capturen el fenómeno estudiado
+  \item Información producida por humanos que contiene sesgos hacia un grupo o grupos de personas
+  \item Una distorción sistemática en la informacion que compromete su representatividad\cite{OCDK19}
 \end{enumerate}
-\begin{quote}"biased training data results in biased algorithms, which in turn produce more biased data in a feedback loop"\cite{GSC18} \end{quote}
-No Data Set completely represents the world or population and biases often are unintended byproducts of human decision-making\cite{GSC18}. It is realistically unachievable to have a perfect data set. Therefore better recollection techniques should be pursued, as well as postprocessing techniques such as Data-massaging.
-\subsection{Social Data, and good data recollection} %Very important
-% Data fundamentalism
-A weak point in systems using machine-learning is the quality of the data being inputted ininto the statistical model \cite{Harv18}. In fact, most of the problems to be recited in this paper are caused by an unrepresentative recollection of data, which leads to Data Bias\nameref{DataBias}. This fits conceptually both in \nameref{TechnicalBias} as well as \nameref{PreexsitingBias}.\\
-Data recollection should be done in the most conscious way possible. The extra step has to be taken from satisfying the system with enough data for an acceptable solution, ensure the data inputted is from equally represented groups of people who will use the system later on. Even then Elfos, and Torralba (REFERENCE) discuss in their paper on image recognition models, how even the most thoroughly randomized and curated data sets are biased.\\
-Proper education about the potential consequences of faulty datasets is necessary and has been implemented in a lot of schools in the last 10 years\cite{MMS*19}\cite{HWD*19}.\\
+\begin{quote}
+  "Informacion sesgada para entrenar modelos da como resultado algorítmos sesgados, que consecuentemente producen más información sesgada, creando un circulo de retroalimentación" \cite{GSC18}
+\end{quote}
 
+Es necesario aclarar que ningun set de datos representará perfectamente a una población. Los sesgos nombrados en este capítulo por lo general son remanentes del proceso de toma de decisiones humanas, junto con la accesibilidad a la información y por tanto realisticamente se deben considerar como inevitables\cite{GSC18}. Cuándo hablamos de perfecta representación nos referimos al sentido egalitario, cada grupo y persona tiene/tendrá la misma calidad de representación de sus características. Es por eso que el desarrollo de mejores tecnicas de recolectamiento debe ser perseguido con alta prioridad.
 
+\subsection{Datos sociales, y buenas técnicas de recolección}
 
 \textbf{Web Data}\\
 The Web is in today's Data Science context a really big source of data. The Branch of Computer Science related to the task of gaining data from Web-System is called Web-scrapping. It is often said in the Data Science community how interactions on the internet can be a \textsl{reflex on our society}. This idea prevails under very specific circumstances, as well as an in-depth analysis, and preworking of the data being extracted from the web.\\
-The following biases are produced due to the structural characteristics of the systems that produce the data. The classification is taken from the Prabhakar Krishnamurthy article on Understanding Data Science \cite{Kris19}
-\\
-\subsubsection{Response or Activity Bias}:
-Only a very small proportion of users contribute with content, thus the latter should not be used to infer characteristics or decision about a general population. \footnote{Still, this is commonly done(twitter case)}
-\begin{itemize}
-  \item 7\% of users produce 50\% of the posts from a Facebook Data Set from 2009
-  \item 4\% of users produced 50\% of reviews on a 2013 Amazon Data Set
-  \item Just 2000 people produced the first version of half of the entries of English Wikipedia\cite{Baez18}
 
+El internet es en el campo de Data Science una de las principales fuentes de datos. La rama de las ciencias computacionales enfocada en la tarea de recolección de información de internet se llama Web-scrapping.
+Los sesgos que serán enlistados a continucación son comunes a partir de la extracción de datos en internet, y son producidos debido a las características estructurales de la red misma. La clasificación ha sido tomada de el articulo de Prabhakar Krishnamurthy "Understanding Data-Science".\cite{Kris19}\\
+
+\subsubsection{Sesgo de respuesta o actividad}
+
+Dentro de la creación de contenido accesible en internet, el origen puede ser atribuído solo a una pequena proporción de usuarios, por lo que la misma información no debería usarse sin análisis crítico previo para generar inferencia sobre la población en general, o sobre algún grupo minoritário. Sin embargo, actualmente existen pocas restricciones en cuanto a información obtenida de esta manera.
+
+\begin{itemize}
+  \item 7\% de los usuarios produce el 50\% de los posts en Facebook \footnote{información tomada de un set de datos del 2009}
+  \item 4\% de los usuarios produjeron el 50\% de los reviews en Amazon en 2013
+  \item Solamente 2000 personas produjeorn la primera versión de la mitad de los artículos en Wikipedia en inglés \cite{Baez18}
 \end{itemize}
 
-\subsubsection{Selection Bias}:
-Systems that manage which content and on what order it should be shown to the user, and ultimately exclude other content. Ad Personalization, Recommendation Systems, Search Engines, these systems embed machine-learning models that influence the data generated, which in consequently is fed back into the system as training data for the model creating a loop. They are based on the maximization of a  utility function $U$ for the user, which will be covered in section "\nameref{RecommendationSys}".\\
 
-\subsubsection{Bias due to System Drift}:
-Refers to a change in the data generating system that results in the statistical model using a new type of data resulting in degraded results. There are two main stratifications of this bias:\\
-\textsl{Concept drift}: concept drift occurs when there is a change in the backend function or model that generates the data you observe.\\
-\textsl{Model drift} : The User Experience (UX) model changes, e.g. the adding of a share/like button for further user interaction.
-The Model then generates failed results due to the evolution of the data but the sedentarism of the system. The Model then should adapt to the data.
+
+\subsubsection{Sesgo de selección}:
+
+Debido a la gigantezca cantidad de información y contenido en muchas ramas del internet, se ha creado la necesidad de crear sistemas de selección que muestren al usuario la información mas "relevante".
+Estos sistemas que gestionan que contenido se muestra al usuario y en que orden, inevitablemente excluyen otro contenido. Personalización de propaganda, sistémas de recomendación, motóres de busqueda, todos estos sistemas poseen modelos internos que generan estas listas de contenido. Una vez que el usuario digiere el contenido mostrado, este muestra sus preferencias nuevamente al modelo y se genra un loop en el que existe información rezagada. Estos sístemas estan basados en la maximización de una función para el usuario $U$. Esto será cubierto mas en detalle en la sección "\nameref{RecommendationSys}".\\
+En casos extremos este sesgo es una de las causas del fenómeno de burbujas ideológicas en las redes sociales. Fenómeno en el cuál el usuario es expuesto cada vez más exclusivamente a un punto de vista o ideología, creando un sensación de incrédulidad, y falta de autocrítica del mismo usuario.
+
+
+\subsubsection{Sesgo debido a evolución del sistema}:
+
+\textsl{Cambio conceptual} : esto ocurre cuándo las reglas básicas del sistema o modelo cambian.
+\textsl{Cambio de modelo} : esto ocurre cuando la interface con la que el usuario entra en contacto sufre de cambios considerables que redeterminan el comportamiento de este mismo. Anadir un botón para compartir o hacer "like".
+
+Lo que se puede esperar que suceda como resultado de la "evolución" de el sistema, es un cambio conjunto del comportamiento de los usuarios que consecuentemente se refleja en los datos que se obtienen de tales sistemas. El sesgo tiene su origen en un sistema sedentario que es adaptado a la evolución de los datos que continua usando. El riesgo de una situación con un sesgo de evolucion del sistema son resultados fallidos en nuestros sistemas predictorios.
+
+% Refers to a change in the data generating system that results in the statistical model using a new type of data resulting in degraded results. There are two main stratifications of this bias:\\
+% \textsl{Concept drift}: concept drift occurs when there is a change in the backend function or model that generates the data you observe.\\
+% \textsl{Model drift} : The User Experience (UX) model changes, e.g. the adding of a share/like button for further user interaction.
+% The Model then generates failed results due to the evolution of the data but the sedentarism of the system. The Model then should adapt to the data.
+\subsubsection{Sesgo de omición}
+En estadística predictiva, sesgo de omición ocurre cuando un modelo estadístico no toma en cuenta una o mas variables relevantes. Especialmente en modelos de regresión, cuando una variable relevante $x_i$ es omitida de un \textsl{Modelo} usado para predecir la categoria $y$ de forma $$y = \beta_1 x_1 + ... +\beta_k x_k, i\notin (1,...,k) $$, donde $x_i$ esta correlacionada
 \subsubsection{Omitted Variable Bias}:
 In statistics, omitted-variable bias occurs when a statistical model leaves out one or more relevant variables. Especially in Regression Models a relevant variable $x_i$ is left out, from a \textsl{Model} used to predict the label $y$ such as $$y = \beta_1 x_1 + ... +\beta_k x_k, i\notin (1,...,k) $$ where $x_i$ correlated to variables in the model, then a bias in the form o deviation of the prediction is generated.\\
 More specifically, if we wanted to predict the pure causal effect that a change on $X_1$ would have on the label $y$, where : $X_1$ is a set of variables used in our abstract prediction, our  regression would be $$y = \beta_1X_1 + \epsilon$$, where $\beta_1$ is a set of coefficients derived by our statistical model and $\epsilon$ describes variation. Given that in the real world we don't have full randomization, other variables probably exist that belong to the equation given that they are correlated to the set of characteristics we want to predict on. The equation would then be: $$y = \beta_1X_1 + \epsilon_y = \beta_1X_1 + (\beta_2X_2 + v)$$ If we then regress $y$ on $X_1$ we can expect:
